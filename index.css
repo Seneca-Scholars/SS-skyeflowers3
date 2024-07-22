@@ -14,16 +14,18 @@ header {
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 h1 {
     text-align: center;
-   
 }
 
 nav ul {
     padding-left: 0;
     margin-right: 20px;
+    
 }
 
 nav ul li {
@@ -62,9 +64,7 @@ label {
  
 table {
     border-collapse: collapse;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 50px;
 }
 
 th, td {
@@ -91,7 +91,7 @@ table caption {
 
 select {
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 50px;
 }
 
 
@@ -110,4 +110,50 @@ ol {
 
 .content{
     margin-left: 20px;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #fad9fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    background: #3a4452;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.calculator form input {
+    border: 0;
+    outline: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+
+form .display {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+form .display input {
+    text-align: right;
+    flex: 1;
+    font-size: 45px;
+    box-shadow: none;
+}
+
+form input.equal {
+    width: 230px;
 }
