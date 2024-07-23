@@ -14,7 +14,7 @@
             </div>
             <div>
                 <input id="AC" type="button" value="AC">
-                <input id="DE"type="button" value="DE">
+                <input id="DE" type="button" value="DE">
                 <input class="num" type="button" value=".">
                 <input class="operation" type="button" value="*">
             </div>
@@ -22,19 +22,19 @@
                 <input class="num" type="button" value="7">
                 <input class="num" type="button" value="8">
                 <input class="num" type="button" value="9">
-                <input class="operation" type="button" value="*">
+                <input class="operation" type="button" value="/">
             </div>
             <div>
                 <input class="num" type="button" value="4">
                 <input class="num" type="button" value="5">
                 <input class="num" type="button" value="6">
-                <input class="operation" type="button" value="-">
+                <input class="operation" type="button" value="+">
             </div>
             <div>
                 <input class="num" type="button" value="1">
                 <input class="num" type="button" value="2">
                 <input class="num" type="button" value="3">
-                <input class="operation" type="button" value="+">
+                <input class="operation" type="button" value="-">
             </div>
             <div>
                 <input class="num" type="button" value="0">
@@ -47,14 +47,14 @@
     <script>
         
         const nums = document.getElementsByClassName("num");
-        const disp = document.getElementById("display");
+        const display = document.getElementById("display");
         const operation = document.getElementsByClassName("operation");
         const equal = document.getElementById("equal");
         const ac = document.getElementById("AC");
         const de = document.getElementById("DE");
 
         function addToDisplay() {
-            disp.value += this.value;
+            display.value += this.value;
         }
 
         for (let i = 0; i < nums.length; i++) {
@@ -66,20 +66,20 @@
         }
 
         function solve(){
-            disp.value = eval(disp.value);
+            display.value = eval(display.value);
         }
 
         equal.addEventListener('click', solve);
 
         function clear(){
-            disp.value = '';
+            display.value = '';
         }
 
         ac.addEventListener('click', clear);
 
 
         function del(){
-            disp.value = disp.value.slice (0, -1) 
+            display.value = display.value.slice (0, -1) 
         }
 
         de.addEventListener('click', del);
