@@ -26,14 +26,16 @@
     width: 60px;
     height: 60px;
     margin: 5px;
-    background: #979BCA; 
+    background: hsl(235, 32%, 69%); 
+    cursor: pointer;
 }
 
 .operation {
     width: 60px;
     height: 60px;
     margin: 5px;
-    background: #979BCA; 
+    background: hsl(235, 32%, 69%); 
+    cursor: pointer;
 }
 
 #AC {
@@ -41,21 +43,48 @@
     height: 60px;
     margin: 5px;
     background: hsl(235, 32%, 69%); 
+    cursor: pointer;
 }
 
 #DE {
     width: 60px;
     height: 60px;
     margin: 5px;
-    background: #979BCA; 
+    background: hsl(235, 32%, 69%); 
+    cursor: pointer;
 }
 
 #equal {
     height: 60px;
     width: 209px;
     margin: 5px;
-    background: #979BCA; 
+    background: hsl(235, 32%, 69%); 
+    cursor: pointer;
 }
+
+#DE:hover {
+    background: hsl(235, 32%, 59%); 
+}
+
+#AC:hover {
+    background: hsl(235, 32%, 59%); 
+}
+
+.num:hover {
+    background: hsl(235, 32%, 59%); 
+}
+
+.operation:hover {
+    background: hsl(235, 32%, 59%); 
+}
+
+#equal:hover {
+    background: hsl(235, 32%, 59%); 
+}
+
+
+
+
 
 
 
