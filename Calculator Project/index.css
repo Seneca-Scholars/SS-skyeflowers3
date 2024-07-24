@@ -40,7 +40,7 @@
     width: 60px;
     height: 60px;
     margin: 5px;
-    background: #979BCA; 
+    background: hsl(235, 32%, 69%); 
 }
 
 #DE {
@@ -56,6 +56,8 @@
     margin: 5px;
     background: #979BCA; 
 }
+
+
 
 
 

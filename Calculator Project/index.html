@@ -12,7 +12,7 @@
             <div>
                 <input type="text" name="display" id="display">
             </div>
-            <div>
+            <div >
                 <input id="AC" type="button" value="AC">
                 <input id="DE" type="button" value="DE">
                 <input class="num" type="button" value=".">
@@ -66,13 +66,18 @@
         }
 
         function solve(){
+            try {
             display.value = eval(display.value);
+           }
+           catch(error) {
+            display.value = "Error";
+           }
         }
 
         equal.addEventListener('click', solve);
 
         function clear(){
-            display.value = '';
+          display.value = "";
         }
 
         ac.addEventListener('click', clear);
