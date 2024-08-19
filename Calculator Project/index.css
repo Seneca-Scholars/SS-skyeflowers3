@@ -1,7 +1,11 @@
+body{
+    background-image: url("https://t4.ftcdn.net/jpg/07/17/78/09/360_F_717780981_ZkDwS1g29IVYl4VYfC3KGg3GgSB1EdlP.jpg");
+}
+
 .container {
     width: 100vw;
     height: 100vh;
-    background: #fce6ff;
+ 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,6 +66,7 @@
     cursor: pointer;
 }
 
+/*makes it so buttons change color when hovering over them*/
 #DE:hover {
     background: hsl(235, 32%, 59%); 
 }

@@ -53,10 +53,12 @@
         const ac = document.getElementById("AC");
         const de = document.getElementById("DE");
 
+        //adds value of button clicked to the display
         function addToDisplay() {
             display.value += this.value;
         }
 
+        //using for loops to go through the class name arrays and add event listeners to each button
         for (let i = 0; i < nums.length; i++) {
             nums[i].addEventListener('click', addToDisplay);
         }
@@ -65,6 +67,7 @@
             operation[i].addEventListener('click', addToDisplay);
         }
 
+        //equal functionality - tries to solve but gives an error message if it cant
         function solve(){
             try {
             display.value = eval(display.value);
@@ -76,15 +79,16 @@
 
         equal.addEventListener('click', solve);
 
+        //AC button functionality
         function clear(){
           display.value = "";
         }
 
         ac.addEventListener('click', clear);
 
-
+        //DE button functionality
         function del(){
-            display.value = display.value.slice (0, -1) 
+            display.value = display.value.slice (0, -1);
         }
 
         de.addEventListener('click', del);
