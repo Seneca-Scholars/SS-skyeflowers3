@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from 'react';
 
 function Table() {
-const [data, setData] = useState([]);
-const [formData, setFormData] = useState({
-  id: null, 
-  name: '', 
-});
+  const [data, setData] = useState([]);
+  const [formData, setFormData] = useState({
+    id: null, 
+    name: '', 
+    email: '',
+  });
 
-useEffect(() => {
+  useEffect(() => {
     fetch("/api/items")
-    .then(response => {
-       if (response.ok) {
-        return response.json();
-       } else {
-        throw new Error('Network response unsuccessful');
-    }})
-    .then(data => {
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Network response unsuccessful');
+        }
+      })
+      .then(data => {
         console.log(data);
         setData(data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    })
-  },[]);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,60 +34,37 @@ useEffect(() => {
     }));
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
-   
-    if (formData.id) {
-      fetch(`/api/items/${formData.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-        }), 
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+  
+    fetch('/api/items', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+      }),
+    })
+    .then(response => {
+      if (response.ok) {
         return response.json();
-      })
-      .then(updatedItem => {
-        setData(prevData => prevData.map(item => item.id === updatedItem.id ? updatedItem : item));
-        setFormData({ id: null, name: '', phone: '', address: '' });
-      })
-      .catch(error => {
-        console.error('Error updating data:', error);
-      });
-    } else {
-      fetch('/api/items', {
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json', 
-        },
-        body: JSON.stringify({
-          name: formData.name,
-        }),
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(newItem => {
-        setData(prevData => [...prevData, newItem]);
-        setFormData({ id: null, name: '' });
-      })
-      .catch(error => {
-        console.error('Error posting data:', error);
-      });
-    }
+      } else {
+        throw new Error('Network response was not ok');
+      };
+    })
+    .then(newItem => {
+      setData(prevData => [...prevData, newItem]);
+      setFormData({ id: null, name: '', email: '' });
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error posting data:', error);
+    });
   };
 
-    return (
+  return (  
     <div>
       <form onSubmit={handleSubmit}>
         <div>
@@ -100,6 +79,18 @@ useEffect(() => {
             />
           </label>
         </div>
+        <div>
+          <label>
+            Email:
+            <input 
+              type='text' 
+              name='email' 
+              onChange={handleChange}
+              value={formData.email} 
+              required
+            />
+          </label>
+        </div>
         <button type="submit">Submit</button>
       </form>
 
@@ -108,19 +99,21 @@ useEffect(() => {
           <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Email</th>
           </tr>
         </thead>
         <tbody>
           {data.map((data, index) => (
-            <tr>
+            <tr key={index}>
               <td>{data.id}</td>
               <td>{data.name}</td>
+              <td>{data.email}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-};
+}
 
 export default Table;
