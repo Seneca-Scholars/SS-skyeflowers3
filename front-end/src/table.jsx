@@ -5,7 +5,6 @@ function Table() {
   const [formData, setFormData] = useState({
     id: null, 
     name: '', 
-    email: '',
   });
 
   useEffect(() => {
@@ -44,7 +43,6 @@ function Table() {
       },
       body: JSON.stringify({
         name: formData.name,
-        email: formData.email,
       }),
     })
     .then(response => {
@@ -56,11 +54,30 @@ function Table() {
     })
     .then(newItem => {
       setData(prevData => [...prevData, newItem]);
-      setFormData({ id: null, name: '', email: '' });
+      setFormData({ id: null, name: '' });
       console.log(data);
     })
     .catch(error => {
       console.error('Error posting data:', error);
+    });
+  };
+
+  const handleDelete = (id) => {
+    fetch(`/api/items/${id}`, {
+      method: 'DELETE', 
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    })
+    .then(() => {
+      setData(prevData => prevData.filter(item => item.id !== id));
+    })
+    .catch(error => {
+      console.error('Error deleting item:', error);
     });
   };
 
@@ -79,18 +96,6 @@ function Table() {
             />
           </label>
         </div>
-        <div>
-          <label>
-            Email:
-            <input 
-              type='text' 
-              name='email' 
-              onChange={handleChange}
-              value={formData.email} 
-              required
-            />
-          </label>
-        </div>
         <button type="submit">Submit</button>
       </form>
 
@@ -99,7 +104,7 @@ function Table() {
           <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Email</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -107,7 +112,7 @@ function Table() {
             <tr key={index}>
               <td>{data.id}</td>
               <td>{data.name}</td>
-              <td>{data.email}</td>
+              <td><button onClick={() => handleDelete(data.id)}>delete</button></td>
             </tr>
           ))}
         </tbody>
