@@ -5,10 +5,12 @@ function Table() {
   const [formData, setFormData] = useState({
     id: null, 
     name: '', 
+    phone: '',
+    address: '',
   });
 
   useEffect(() => {
-    fetch("/api/items")
+    fetch("/api/users")
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -36,14 +38,10 @@ function Table() {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    fetch('/api/items', {
+    fetch('/api/users', {
       method: 'POST', 
-      headers: {
-        'Content-Type': 'application/json', 
-      },
-      body: JSON.stringify({
-        name: formData.name,
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
     })
     .then(response => {
       if (response.ok) {
@@ -52,10 +50,9 @@ function Table() {
         throw new Error('Network response was not ok');
       };
     })
-    .then(newItem => {
-      setData(prevData => [...prevData, newItem]);
-      setFormData({ id: null, name: '' });
-      console.log(data);
+    .then(newUser => {
+      setData(prevData => [...prevData, newUser]);
+      setFormData({ id: null, name: '', phone: '', address: '' });
     })
     .catch(error => {
       console.error('Error posting data:', error);
@@ -63,7 +60,7 @@ function Table() {
   };
 
   const handleDelete = (id) => {
-    fetch(`/api/items/${id}`, {
+    fetch(`/api/users/${id}`, {
       method: 'DELETE', 
     })
     .then(response => {
@@ -74,7 +71,7 @@ function Table() {
       }
     })
     .then(() => {
-      setData(prevData => prevData.filter(item => item.id !== id));
+      setData(prevData => prevData.filter(user => user.id !== id));
     })
     .catch(error => {
       console.error('Error deleting item:', error);
@@ -96,6 +93,30 @@ function Table() {
             />
           </label>
         </div>
+        <div>
+          <label>
+            Phone:
+            <input 
+              type='text' 
+              name='phone' 
+              onChange={handleChange}
+              value={formData.phone} 
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Address:
+            <input 
+              type='text' 
+              name='address' 
+              onChange={handleChange}
+              value={formData.address} 
+              required
+            />
+          </label>
+        </div>
         <button type="submit">Submit</button>
       </form>
 
@@ -104,15 +125,19 @@ function Table() {
           <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((data, index) => (
-            <tr key={index}>
-              <td>{data.id}</td>
-              <td>{data.name}</td>
-              <td><button onClick={() => handleDelete(data.id)}>delete</button></td>
+          {data.map((user) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.phone}</td>
+              <td>{user.address}</td>
+              <td><button onClick={() => handleDelete(user.id)}>delete</button></td>
             </tr>
           ))}
         </tbody>
