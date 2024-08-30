@@ -53,6 +53,7 @@ function Table() {
     .then(newUser => {
       setData(prevData => [...prevData, newUser]);
       setFormData({ id: null, name: '', phone: '', address: '' });
+
     })
     .catch(error => {
       console.error('Error posting data:', error);
@@ -78,13 +79,22 @@ function Table() {
     });
   };
 
+  const handleEdit = (user) => {
+    setFormData({
+      id: user.id,
+      name: user.name,
+      phone: user.phone,
+      address: user.address,
+    });
+  };
+
   return (  
     <div>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
             Name:
-            <input 
+            <input
               type='text' 
               name='name' 
               onChange={handleChange}
@@ -95,7 +105,7 @@ function Table() {
         </div>
         <div>
           <label>
-            Phone:
+            Phone #:
             <input 
               type='text' 
               name='phone' 
@@ -117,7 +127,7 @@ function Table() {
             />
           </label>
         </div>
-        <button type="submit">Submit</button>
+        <button id="submitbutton" type="submit">Submit</button>
       </form>
 
       <table>
@@ -130,14 +140,15 @@ function Table() {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody>git 
           {data.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.phone}</td>
               <td>{user.address}</td>
-              <td><button onClick={() => handleDelete(user.id)}>delete</button></td>
+              <td><button onClick={() => handleDelete(user.id)}>delete</button>
+              <button onClick={() => handleEdit(user)}>edit</button></td>
             </tr>
           ))}
         </tbody>

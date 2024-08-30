@@ -14,14 +14,45 @@ header {
   margin-bottom: 20px;
 }
 
-
+th {
+  background-color: #cdd0ff;
+}
 th, td {
-  border: 0.5mm solid black; 
-  padding: 10px;
+  border: 1px solid black; 
+  padding: 7px;
+  
 }
 
 table {
   background-color: #dbdfff;
   border-collapse: collapse;
   margin: auto;
+  width: 70%;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+tr:hover {
+  background-color: #e8e8ff;
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin: 5px;
+  padding: 5px;
+  background-color: #282c34;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #58597c;
 }
