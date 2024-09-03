@@ -19,8 +19,8 @@ function Table() {
         }
       })
       .then(data => {
-        console.log(data);
         setData(data);
+        console.log(data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -38,6 +38,33 @@ function Table() {
   const handleSubmit = (event) => {
     event.preventDefault();
   
+    if (formData.id) {
+      fetch (`/api/users/${formData.id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          address: formData.address,
+        }), 
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Network response unsuccessful');
+        }
+      })
+      .then(updtdUser => {
+        setData(prevData => prevData.map(user=> user.id === updtdUser.id ? updtdUser : user));
+        setFormData({ id: null, name: '', phone: '', address: '' });
+      })
+      .catch(error => {
+        console.error('Error updating data:', error);
+      })
+
+    } else {
+
     fetch('/api/users', {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
@@ -58,6 +85,7 @@ function Table() {
     .catch(error => {
       console.error('Error posting data:', error);
     });
+   }
   };
 
   const handleDelete = (id) => {
@@ -140,7 +168,7 @@ function Table() {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>git 
+        <tbody> 
           {data.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
