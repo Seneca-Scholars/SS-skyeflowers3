@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css'; 
 
 function Table() {
   const [data, setData] = useState([]);
@@ -117,8 +118,9 @@ function Table() {
   };
 
   return (  
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div id="container">
+      <div>
+      <form onSubmit={handleSubmit} id="submissionForm">
         <div>
           <label>
             Name:
@@ -157,8 +159,10 @@ function Table() {
         </div>
         <button id="submitbutton" type="submit">Submit</button>
       </form>
-
-      <table>
+      </div>
+      
+      <div>
+      <table id="myTable">
         <thead>
           <tr>
             <th>Id</th>
@@ -181,6 +185,7 @@ function Table() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
