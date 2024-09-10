@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 header {
   background-color: #282c34;
   color: white;
@@ -11,15 +16,17 @@ header {
 
 #container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  padding: 20px;
-  width: 100;
-  height: 100;
+  grid-template-columns: 2fr 5fr;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  gap: 50px;
 }
 
 #submissionForm {
-  width: 60%;
+  width: calc(100% - 40px);
   grid-column: 1;
+  margin: auto;
 }
 
 #myTable {
