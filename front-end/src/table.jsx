@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; 
+import './App.css';
 
 function Table() {
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
-    id: null, 
-    name: '', 
+    id: null,
+    name: '',
     phone: '',
     address: '',
   });
@@ -31,14 +31,14 @@ function Table() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData(prevFormData => ({
-      ...prevFormData, 
+      ...prevFormData,
       [name]: value
     }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     if (formData.id) {
       fetch (`/api/users/${formData.id}`, {
         method: 'PUT',
@@ -47,7 +47,7 @@ function Table() {
           name: formData.name,
           phone: formData.phone,
           address: formData.address,
-        }), 
+        }),
       })
       .then(response => {
         if (response.ok) {
@@ -67,7 +67,7 @@ function Table() {
     } else {
 
     fetch('/api/users', {
-      method: 'POST', 
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     })
@@ -91,7 +91,7 @@ function Table() {
 
   const handleDelete = (id) => {
     fetch(`/api/users/${id}`, {
-      method: 'DELETE', 
+      method: 'DELETE',
     })
     .then(response => {
       if (response.ok) {
@@ -117,7 +117,7 @@ function Table() {
     });
   };
 
-  return (  
+  return (
     <div id="container">
       <div>
       <form onSubmit={handleSubmit} id="submissionForm">
@@ -125,10 +125,10 @@ function Table() {
           <label>
             Name:
             <input
-              type='text' 
-              name='name' 
+              type='text'
+              name='name'
               onChange={handleChange}
-              value={formData.name} 
+              value={formData.name}
               required
             />
           </label>
@@ -136,11 +136,11 @@ function Table() {
         <div>
           <label>
             Phone #:
-            <input 
-              type='text' 
-              name='phone' 
+            <input
+              type='text'
+              name='phone'
               onChange={handleChange}
-              value={formData.phone} 
+              value={formData.phone}
               required
             />
           </label>
@@ -148,19 +148,21 @@ function Table() {
         <div>
           <label>
             Address:
-            <input 
-              type='text' 
-              name='address' 
+            <input
+              type='text'
+              name='address'
               onChange={handleChange}
-              value={formData.address} 
+              value={formData.address}
               required
             />
           </label>
         </div>
-        <button id="submitbutton" type="submit">Submit</button>
+        <div>
+        <button id="submitButton" type="submit">Submit</button>
+        </div>
       </form>
       </div>
-      
+
       <div>
       <table id="myTable">
         <thead>
@@ -172,7 +174,7 @@ function Table() {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody> 
+        <tbody>
           {data.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
