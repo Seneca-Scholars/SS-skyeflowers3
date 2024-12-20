@@ -21,14 +21,15 @@ header {
   width: auto;
   height: auto;
   gap: 50px;
+  box-sizing: border-box;
 }
 
 #submissionForm {
-  width: 100%;
+  width: 95%;
   grid-column: 1;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  margin: 0 auto;
 }
 
 #myTable {
@@ -37,6 +38,7 @@ header {
   border-collapse: collapse;
   border-radius: 5px;
   width: 100%;
+  padding: 0;
 }
 
 @media all and (max-width: 600px) {
@@ -47,6 +49,9 @@ header {
   #submissionForm {
     grid-row: 1;
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   #myTable {
     grid-row: 2;
