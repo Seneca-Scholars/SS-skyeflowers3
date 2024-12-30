@@ -1,3 +1,10 @@
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+$darkBckgrnd: #282c34;
+
 .App {
   text-align: center;
 }
@@ -8,10 +15,10 @@ body {
 }
 
 header {
-  background-color: #282c34;
-  color: white;
   margin-bottom: 20px;
   padding: 10px;
+  background-color: $darkBckgrnd;
+  color: white;
 }
 
 #container {
@@ -25,20 +32,18 @@ header {
 }
 
 #submissionForm {
-  width: 95%;
+  @include flexColumn;
   grid-column: 1;
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
+  width: 95%;
 }
 
 #myTable {
   grid-column: 2;
-  background-color: #dbdfff;
+  padding: 0;
+  width: 100%;
   border-collapse: collapse;
   border-radius: 5px;
-  width: 100%;
-  padding: 0;
 }
 
 @media all and (max-width: 600px) {
@@ -47,10 +52,9 @@ header {
     grid-template-columns: 1fr;
   }
   #submissionForm {
+    @include flexColumn;
     grid-row: 1;
     margin: 20px auto;
-    display: flex;
-    flex-direction: column;
     align-items: center;
   }
   #myTable {
@@ -63,37 +67,44 @@ input {
   margin: 5px 0px;
   padding: 5px;
   border: 1px solid #ccc;
-  border-radius: 4px;
   width: 100%;
+  border-radius: 4px;
 }
 
-button {
+#submitBtn {
+  margin: 5px;
   padding: 5px;
-  background-color: #282c34;
+  max-width: 70px;
+  background-color: $darkBckgrnd;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  margin: 5px;
-  max-width: 70px;
+  &:hover {
+    background-color: #58597c;
+  }
 }
 
-button:hover {
-  background-color: #58597c;
+.editBtn {
+  @extend #submitBtn;
 }
 
-th {
-  background-color: #cdd0ff;
-}
-
-th, td {
+@mixin cellStyles {
   border: 1px solid black;
   padding: 7px;
 }
 
-tr:hover {
-  background-color: #e8e8ff;
+th {
+  @include cellStyles;
+  background-color: #cdd0ff;
 }
 
+td {
+  @include cellStyles;
+}
 
-
-
+tr {
+  background-color: #dbdfff;
+  &:hover {
+    background-color: #e8e8ff;
+  }
+}

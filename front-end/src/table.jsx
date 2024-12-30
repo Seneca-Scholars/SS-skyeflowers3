@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './styles/styles.css';
 
 function Table() {
   const [data, setData] = useState([]);
@@ -158,7 +158,7 @@ function Table() {
           </label>
         </div>
         <div>
-        <button id="submitButton" type="submit">Submit</button>
+        <button id="submitBtn" type="submit">Submit</button>
         </div>
       </form>
       </div>
@@ -181,8 +181,8 @@ function Table() {
               <td>{user.name}</td>
               <td>{user.phone}</td>
               <td>{user.address}</td>
-              <td><button onClick={() => handleDelete(user.id)}>delete</button>
-              <button onClick={() => handleEdit(user)}>edit</button></td>
+              <td><button onClick={() => handleDelete(user.id)} class="editBtn">delete</button>
+              <button onClick={() => handleEdit(user)} class="editBtn">edit</button></td>
             </tr>
           ))}
         </tbody>

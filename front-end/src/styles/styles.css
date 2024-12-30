@@ -1,0 +1,97 @@
+.App {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #282c34;
+  color: white;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  gap: 50px;
+  box-sizing: border-box;
+}
+
+#submissionForm {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1;
+  margin: 0 auto;
+  width: 95%;
+}
+
+#myTable {
+  grid-column: 2;
+  padding: 0;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+
+@media all and (max-width: 600px) {
+  #container {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  #submissionForm {
+    display: flex;
+    flex-direction: column;
+    grid-row: 1;
+    margin: 20px auto;
+    align-items: center;
+  }
+  #myTable {
+    grid-row: 2;
+    margin: 10px auto;
+  }
+}
+input {
+  margin: 5px 0px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 4px;
+}
+
+#submitBtn, .editBtn {
+  margin: 5px;
+  padding: 5px;
+  max-width: 70px;
+  background-color: #282c34;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#submitBtn:hover, .editBtn:hover {
+  background-color: #58597c;
+}
+
+th {
+  border: 1px solid black;
+  padding: 7px;
+  background-color: #cdd0ff;
+}
+
+td {
+  border: 1px solid black;
+  padding: 7px;
+}
+
+tr {
+  background-color: #dbdfff;
+}
+tr:hover {
+  background-color: #e8e8ff;
+}/*# sourceMappingURL=styles.css.map */
