@@ -3,6 +3,7 @@
 }
 
 body {
+// box-model
   margin: 0;
   padding: 0;
 }
@@ -10,73 +11,95 @@ body {
 $darkBckgrnd: #282c34;
 
 header {
+// box-model
   margin-bottom: 20px;
   padding: 10px;
   background-color: $darkBckgrnd;
+// typography
   color: white;
 }
 
 #container {
+// display
   display: grid;
   grid-template-columns: 2fr 5fr;
+  gap: 50px;
+// box-model
   padding: 10px;
   width: auto;
   height: auto;
-  gap: 50px;
   box-sizing: border-box;
 }
 
 @mixin flexColumn {
+// display
   display: flex;
   flex-direction: column;
 }
 
 #submissionForm {
+// display
   @include flexColumn;
+// positioning
   grid-column: 1;
+// box-model
   margin: 0 auto;
   width: 95%;
 }
 
 #myTable {
+// positioning
   grid-column: 2;
+// box-model
   padding: 0;
   width: 100%;
+// miscellaneous
   border-collapse: collapse;
   border-radius: 5px;
 }
 
 @media all and (max-width: 600px) {
   #container {
+    // display
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
   }
   #submissionForm {
+    // display
     @include flexColumn;
+    // positioning
     grid-row: 1;
-    margin: 20px auto;
     align-items: center;
+    // box-model
+    margin: 20px auto;
   }
   #myTable {
+    // positioning
     grid-row: 2;
+    // box-model
     margin: 10px auto;
   }
 }
 
 input {
+  // box-model
   margin: 5px 0px;
   padding: 5px;
   border: 1px solid #ccc;
   width: 100%;
+  // miscellaneous
   border-radius: 4px;
 }
 
 #submitBtn {
+  // box-model
   margin: 5px;
   padding: 5px;
   max-width: 70px;
   background-color: $darkBckgrnd;
+  // typography
   color: #fff;
+  // miscellaneous
   border-radius: 5px;
   cursor: pointer;
   &:hover {
@@ -89,11 +112,13 @@ input {
 }
 
 @mixin cellStyles {
+// box-model
   border: 1px solid black;
   padding: 7px;
 }
 
 th {
+// box-model
   @include cellStyles;
   background-color: #cdd0ff;
 }
@@ -103,6 +128,7 @@ td {
 }
 
 tr {
+// box-model
   background-color: #dbdfff;
   &:hover {
     background-color: #e8e8ff;

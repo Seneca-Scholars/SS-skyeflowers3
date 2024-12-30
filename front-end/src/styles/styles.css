@@ -17,10 +17,10 @@ header {
 #container {
   display: grid;
   grid-template-columns: 2fr 5fr;
+  gap: 50px;
   padding: 10px;
   width: auto;
   height: auto;
-  gap: 50px;
   box-sizing: border-box;
 }
 
@@ -49,8 +49,8 @@ header {
     display: flex;
     flex-direction: column;
     grid-row: 1;
-    margin: 20px auto;
     align-items: center;
+    margin: 20px auto;
   }
   #myTable {
     grid-row: 2;
