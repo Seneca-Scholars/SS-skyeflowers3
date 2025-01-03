@@ -1,7 +1,7 @@
 @mixin flexColumn {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
 @mixin cellStyles {
 // box-model
