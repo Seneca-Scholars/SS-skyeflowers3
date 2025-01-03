@@ -1,0 +1,22 @@
+@media all and (max-width: 600px) {
+  #container {
+    // display
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  #submissionForm {
+    // display
+    @include flexColumn;
+    // positioning
+    grid-row: 1;
+    align-items: center;
+    // box-model
+    margin: 20px auto;
+  }
+  #myTable {
+    // positioning
+    grid-row: 2;
+    // box-model
+    margin: 10px auto;
+  }
+}

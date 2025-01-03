@@ -1,0 +1,20 @@
+#submissionForm {
+// display
+  @include flexColumn;
+// positioning
+  grid-column: 1;
+// box-model
+  margin: 0 auto;
+  width: 95%;
+}
+
+input {
+  // box-model
+  margin: 5px 0px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  width: 100%;
+  // miscellaneous
+  border-radius: 4px;
+}

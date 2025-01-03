@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+header {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #282c34;
+  color: white;
+}
+
+#submitBtn, .editBtn {
+  margin: 5px;
+  padding: 5px;
+  max-width: 70px;
+  background-color: #282c34;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#submitBtn:hover, .editBtn:hover {
+  background-color: #58597c;
+}
+
+#submissionForm {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1;
+  margin: 0 auto;
+  width: 95%;
+}
+
+input {
+  margin: 5px 0px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+}
+
+#myTable {
+  grid-column: 2;
+  padding: 0;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+
+th {
+  border: 1px solid black;
+  padding: 7px;
+  background-color: #cdd0ff;
+}
+
+td {
+  border: 1px solid black;
+  padding: 7px;
+}
+
+tr {
+  background-color: #dbdfff;
+}
+tr:hover {
+  background-color: #e8e8ff;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 50px;
+  padding: 10px;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+}
+
+@media all and (max-width: 600px) {
+  #container {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  #submissionForm {
+    display: flex;
+    flex-direction: column;
+    grid-row: 1;
+    align-items: center;
+    margin: 20px auto;
+  }
+  #myTable {
+    grid-row: 2;
+    margin: 10px auto;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './styles/styles.css';
+import './styles/main.css';
 
 function Table() {
   const [data, setData] = useState([]);
