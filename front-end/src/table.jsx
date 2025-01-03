@@ -163,30 +163,31 @@ function Table() {
       </form>
       </div>
 
+
       <div>
-      <table id="myTable">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Address</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.phone}</td>
-              <td>{user.address}</td>
-              <td><button onClick={() => handleDelete(user.id)} class="editBtn">delete</button>
-              <button onClick={() => handleEdit(user)} class="editBtn">edit</button></td>
+        <table id="myTable">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Address</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.map((user) => (
+              <tr key={user.id}>
+                <td>{user.id}</td>
+                <td>{user.name}</td>
+                <td>{user.phone}</td>
+                <td>{user.address}</td>
+                <td><button onClick={() => handleDelete(user.id)} class="editBtn">delete</button>
+                <button onClick={() => handleEdit(user)} class="editBtn">edit</button></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
