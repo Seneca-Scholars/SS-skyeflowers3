@@ -1,23 +1,22 @@
 // Abstracts
-@import './00_abstracts/variables';
-@import './00_abstracts/mixins';
-@import './00_abstracts/functions';
+@import './00_abstracts/variables'; /* global variables for colors, spacing, etc. */
+@import './00_abstracts/mixins'; /* reusable styles */
+@import './00_abstracts/functions'; /* sass functions to simplify calculations and logic */
 
 // Base
-@import './01_base/root';
-@import './01_base/typography';
-@import './01_base/normalize';
-@import './01_base/layout';
+@import './01_base/normalize'; /* resets styles to ensure it looks the same across browsers */
+@import './01_base/typography'; /* global typography styles (font, headings, color, etc.)  */
+@import './01_base/layout'; /* base layout styles (containers, grids, etc.) */
 
-// Atom
+// Atom (components that are 1-3 HTML lines long)
 @import './02_atom/buttons';
 
-// Molecule
+// Molecule (components that are 3-10 HTML lines long)
 @import './03_molecule/form';
 
-// Organism
+// Organism (components that are 10+ HTML lines long)
 @import './04_organism/table';
 
-// Page
+// Page (styles for specific application pages)
 @import './05_page/home';
 
