@@ -1,0 +1,10 @@
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin cellStyles {
+// box-model
+  border: 1px solid black;
+  padding: 7px;
+}

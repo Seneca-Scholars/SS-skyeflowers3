@@ -1,0 +1,19 @@
+#submitBtn {
+  // box-model
+  margin: 5px;
+  padding: 5px;
+  max-width: 70px;
+  background-color: $darkBckgrnd;
+  // typography
+  color: #fff;
+  // miscellaneous
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #58597c;
+  }
+}
+
+.editBtn {
+  @extend #submitBtn;
+}

@@ -1,0 +1,34 @@
+#container {
+ // display
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 50px;
+  // box-model
+  padding: 10px;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+}
+
+@media all and (max-width: 600px) {
+  #container {
+    // display
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  #submissionForm {
+    // display
+    @include flexColumn;
+    // positioning
+    grid-row: 1;
+    align-items: center;
+    // box-model
+    margin: auto;
+  }
+  #myTable {
+    // positioning
+    grid-row: 2;
+    // box-model
+    margin: auto;
+  }
+}

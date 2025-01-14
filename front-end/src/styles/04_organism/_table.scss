@@ -1,0 +1,29 @@
+#myTable {
+  // positioning
+  grid-column: 2;
+  // box-model
+  padding: 0;
+  width: 100%;
+  // miscellaneous
+  border-collapse: collapse;
+  border-radius: 5px;
+  margin: 10;
+}
+
+th {
+  // box-model
+  @include cellStyles;
+  background-color: #cdd0ff;
+}
+
+td {
+  @include cellStyles;
+}
+
+tr {
+  // box-model
+  background-color: #dbdfff;
+  &:hover {
+    background-color: #e8e8ff;
+  }
+}
